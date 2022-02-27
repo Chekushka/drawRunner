@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 88873711}
   m_LocalRotation: {x: 0.06377071, y: -0, z: -0, w: 0.9979646}
-  m_LocalPosition: {x: 0, y: 1.9300001, z: 27.25}
+  m_LocalPosition: {x: 0, y: 1.9300001, z: 26.029999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 217535240}
@@ -249,8 +249,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174032929}
-  m_LocalRotation: {x: 0.046794012, y: -0.0000000037212091, z: 1.7432125e-10, w: 0.9989046}
-  m_LocalPosition: {x: 0, y: 2.62, z: 27.25}
+  m_LocalRotation: {x: 0.04679401, y: 8.8769196e-16, z: -3.46585e-17, w: 0.9989046}
+  m_LocalPosition: {x: 0, y: 2.62, z: 26.029999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 859319528}
@@ -1500,7 +1500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880411171}
   m_LocalRotation: {x: 0.03831847, y: -0.56002825, z: 0.025942862, w: 0.8271802}
-  m_LocalPosition: {x: 10, y: 3.02, z: 29.64}
+  m_LocalPosition: {x: 10, y: 3.02, z: 28.419998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 308010990}
@@ -3463,8 +3463,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058389771}
-  m_LocalRotation: {x: 0.046794012, y: -0.0000000037212091, z: 1.7432125e-10, w: 0.9989046}
-  m_LocalPosition: {x: 0, y: 2.62, z: 27.25}
+  m_LocalRotation: {x: 0.04679401, y: 8.8769196e-16, z: -3.46585e-17, w: 0.9989046}
+  m_LocalPosition: {x: 0, y: 2.62, z: 26.029999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1023495680}
@@ -4007,10 +4007,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4744823366851236713, guid: fceac2fb5a66e694eb34ee316987fe83, type: 3}
-      propertyPath: isWin
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4744823366851236713, guid: fceac2fb5a66e694eb34ee316987fe83, type: 3}
       propertyPath: linesParent
       value: 
       objectReference: {fileID: 203695107}
@@ -4028,7 +4024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4744823368276632627, guid: fceac2fb5a66e694eb34ee316987fe83, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.64
+      value: 32.42
       objectReference: {fileID: 0}
     - target: {fileID: 4744823368276632627, guid: fceac2fb5a66e694eb34ee316987fe83, type: 3}
       propertyPath: m_LocalRotation.w

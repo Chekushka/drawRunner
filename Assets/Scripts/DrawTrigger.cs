@@ -1,5 +1,6 @@
 using System.Collections;
 using Character;
+using Drawing;
 using UnityEngine;
 
 public class DrawTrigger : MonoBehaviour
