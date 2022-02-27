@@ -38,7 +38,7 @@ namespace Drawing
             _camera = Camera.main;
         }
     
-        private void FixedUpdate()
+        private void Update()
         {
             if (Input.touchCount <= 0) return;
             var touch = Input.GetTouch(0);

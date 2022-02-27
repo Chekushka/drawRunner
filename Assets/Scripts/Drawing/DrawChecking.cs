@@ -4,7 +4,7 @@ namespace Drawing
 {
     public class DrawChecking : MonoBehaviour
     {
-        private const float PercentageToPass = 65f;
+        private const float PercentageToPass = 60f;
         private const float MaxSuitableDistanceToPoint = 0.2f; 
         
         public bool CheckLine(LineRenderer drawnLine, LineRenderer standardLine)
