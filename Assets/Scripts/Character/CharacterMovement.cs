@@ -1,3 +1,4 @@
+using Triggers;
 using UnityEngine;
 
 namespace Character

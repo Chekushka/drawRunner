@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Character;
 using MoreMountains.Feedbacks;
+using Triggers;
 using UnityEngine;
 
 namespace Drawing
@@ -14,7 +15,6 @@ namespace Drawing
         [SerializeField] private List<GameObject> itemsMasks;
         [SerializeField] private List<LineRenderer> itemsStandardLines;
         [SerializeField] private MMFeedbacks feedbacks;
-        [SerializeField] private bool isWin;
 
         private CharacterMovement _movement;
         private DrawChecking _drawChecking;
@@ -29,7 +29,7 @@ namespace Drawing
 
         private void Awake()
         {
-            _movement = FindObjectOfType<CharacterMovement>();
+            _movement = GetComponentInParent<CharacterMovement>();
             _cameraChanging = FindObjectOfType<CameraChanging>();
             _standardLineMoving = GetComponent<StandardLineMoving>();
             _drawChecking = GetComponent<DrawChecking>();
