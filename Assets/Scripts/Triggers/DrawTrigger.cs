@@ -13,7 +13,7 @@ namespace Triggers
       {
          if(!other.gameObject.CompareTag("Character")) return;
          var characterMovement = other.GetComponent<CharacterMovement>();
-         characterMovement.SetToIdle();
+         characterMovement.SetToIdle(itemNeededToUse);
          if (characterMovement.isPlayerCharacter)
          {
             var itemDrawing = FindObjectOfType<ItemDrawing>();

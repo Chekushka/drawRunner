@@ -12,7 +12,6 @@ public class PlatformsMaterialSetting : MonoBehaviour
     {
         var randomIndex = Random.Range(0, primaryMaterials.Count);
         var platforms = GetComponentsInChildren<MeshRenderer>();
-        Debug.Log(randomIndex);
 
         var materials = new[] { primaryMaterials[randomIndex], secondaryMaterials[randomIndex]};
         foreach (var platform in platforms)

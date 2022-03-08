@@ -23,7 +23,7 @@ namespace Character
         private Vector3 _endJumpPoint;
         private AnimationCurve _currentCurve;
         private float _flyingTime;
-        
+
         private void Start()
         {
             _characterMovement = GetComponent<CharacterMovement>();
@@ -95,6 +95,5 @@ namespace Character
             yield return new WaitForSeconds(0.4f);
             landParticles.Play();
         }
-        
     }
 }

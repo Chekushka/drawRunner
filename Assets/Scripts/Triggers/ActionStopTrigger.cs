@@ -17,6 +17,7 @@ namespace Triggers
         private IEnumerator StopAction(CharacterMovement character)
         {
             character.StartMovingAnimation();
+
             yield return new WaitForSeconds(delay);
             character.SetToMoving();
         }

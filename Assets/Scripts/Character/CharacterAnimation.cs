@@ -8,7 +8,7 @@ namespace Character
         [SerializeField] private Animator girlAnimator;
         [SerializeField] private Animator wingsAnimator;
         [SerializeField] private Animator helmetAnimator;
-        
+
         private static readonly int StartFly = Animator.StringToHash("StartFly");
         private static readonly int StartWingsFly = Animator.StringToHash("StartWingsFly");
         private static readonly int StartWingsFailFly = Animator.StringToHash("StartWingsFailFly");
@@ -21,7 +21,10 @@ namespace Character
         private static readonly int HelmetDisappear = Animator.StringToHash("HelmetDisappear");
         private static readonly int SetFinish = Animator.StringToHash("SetFinish");
         private static readonly int SetFinishFail = Animator.StringToHash("SetFinishFail");
-        
+        private static readonly int SetBeforeJetPackIdle = Animator.StringToHash("SetBeforeJetPackIdle");
+        private static readonly int SetJetPackFly = Animator.StringToHash("SetJetPackFly");
+        private static readonly int JetPackAppear = Animator.StringToHash("JetPackAppear");
+        private static readonly int JetPackDisappear = Animator.StringToHash("JetPackHide");
 
         #region Girl
 
@@ -32,9 +35,11 @@ namespace Character
         public void GirlStartMovingAfterFly() => girlAnimator.SetTrigger(StartMovingAfterFly);
         public void GirlStartFly() => girlAnimator.SetTrigger(StartFly);
         public void GirlWallFall() => girlAnimator.SetTrigger(WallFall);
-        
+        public void GirlSetBeforeJetPackIdle() => girlAnimator.SetTrigger(SetBeforeJetPackIdle);
         public void EnableFinish() => girlAnimator.SetTrigger(SetFinish);
         public void EnableFinishFail() => girlAnimator.SetTrigger(SetFinishFail);
+        public void GirlStartJetPackFly() => girlAnimator.SetTrigger(SetJetPackFly);
+        
         
         #endregion
 
@@ -49,7 +54,7 @@ namespace Character
 
         public void HelmetShow() => helmetAnimator.SetTrigger(HelmetAppear);
         public void HelmetHide() => helmetAnimator.SetTrigger(HelmetDisappear);
-
+        
         #endregion
 
         public void DisableGirlAnimator() => girlAnimator.enabled = false;

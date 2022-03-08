@@ -4,7 +4,8 @@ using UnityEngine;
 namespace Character
 {
     [RequireComponent(typeof(CharacterRun),typeof(CharacterFly), 
-        typeof(CharacterAnimation))]
+        typeof(CharacterJetPack))] 
+    [RequireComponent(typeof(CharacterAnimation))]
     public class CharacterMovement : MonoBehaviour
     {
         public bool isPlayerCharacter;
@@ -13,6 +14,7 @@ namespace Character
         
         private CharacterRun _characterRun;
         private CharacterFly _characterFly;
+        private CharacterJetPack _characterJetPack;
         private CharacterAnimation _characterAnimation;
         private CameraChanging _cameraChanging;
 
@@ -20,6 +22,7 @@ namespace Character
         {
             _characterRun = GetComponent<CharacterRun>();
             _characterFly = GetComponent<CharacterFly>();
+            _characterJetPack = GetComponent<CharacterJetPack>();
             _characterAnimation = GetComponent<CharacterAnimation>();
             _cameraChanging = FindObjectOfType<CameraChanging>();
             state = CharacterState.Moving;
@@ -38,6 +41,9 @@ namespace Character
                 case CharacterState.Running:
                     _characterRun.Run();
                     break;
+                case CharacterState.FlyingJetPack:
+                    _characterJetPack.JetPackFly();
+                    break;
                 case CharacterState.Idle:
                     break;
             }
@@ -55,6 +61,9 @@ namespace Character
                     if(isPlayerCharacter) 
                         _cameraChanging.ChangeCamera(CameraType.WallBrake);
                     break;
+                case Item.JetPack:
+                    _characterJetPack.StartJetPackAction();
+                    break;
             }
         }
         public void StartFailAction(Item item)
@@ -69,27 +78,45 @@ namespace Character
                     if(isPlayerCharacter) 
                         _cameraChanging.ChangeCamera(CameraType.WallBrake);
                     break;
+                case Item.JetPack:
+                    _characterJetPack.StartFailJetPackAction();
+                    break;
             }
         }
 
-        public void SetToIdle()
+        public void SetToIdle(Item item)
         {
+            if (item == Item.JetPack)
+                _characterAnimation.GirlSetBeforeJetPackIdle();
+            else
+                _characterAnimation.GirlIdleEnable();
+            
             state = CharacterState.Idle;
-            _characterAnimation.GirlIdleEnable();
         }
 
         public void StartMovingAnimation()
         {
-            if (state == CharacterState.Flying)
-                _characterFly.SetToMovingAfterFly();
-            else
-                _characterAnimation.GirlStartRegularMoving();
+            switch (state)
+            {
+                case CharacterState.Flying:
+                    _characterFly.SetToMovingAfterFly();
+                    break;
+                case CharacterState.FlyingJetPack:
+                    state = CharacterState.Idle;
+                    _characterJetPack.DisableJetpack();
+                    _characterJetPack.SetToMovingAfterJetPack();
+                    break;
+                default:
+                    _characterAnimation.GirlStartRegularMoving();
+                    break;
+            }
         }
 
         public void SetToMoving()
         {
-            if (state == CharacterState.Running)
+            if (state == CharacterState.Running) 
                 _characterRun.DisableHelmet();
+
             state = CharacterState.Moving;
             _characterRun.isAbleToDestroyWall = false;
             if(isPlayerCharacter)
@@ -120,6 +147,7 @@ namespace Character
         Idle,
         Moving,
         Flying,
-        Running
+        Running,
+        FlyingJetPack
     }
 }
