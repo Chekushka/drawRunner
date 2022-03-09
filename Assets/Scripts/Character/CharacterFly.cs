@@ -19,6 +19,7 @@ namespace Character
         
         private CharacterMovement _characterMovement;
         private CharacterAnimation _characterAnimation;
+        private CameraChanging _cameraChanging;
         
         private Vector3 _endJumpPoint;
         private AnimationCurve _currentCurve;
@@ -28,6 +29,7 @@ namespace Character
         {
             _characterMovement = GetComponent<CharacterMovement>();
             _characterAnimation = GetComponent<CharacterAnimation>();
+            _cameraChanging = FindObjectOfType<CameraChanging>();
             _endJumpPoint = Vector3.zero;
             SetRagDollKinematic(true);
         }
@@ -74,6 +76,8 @@ namespace Character
         {
             _characterAnimation.DisableGirlAnimator();
             SetRagDollKinematic(false);
+            if (_characterMovement.state == CharacterState.FlyingJetPack)
+                _cameraChanging.ChangeCamera(CameraType.Balloon);
         }
 
         public void SetToMovingAfterFly()

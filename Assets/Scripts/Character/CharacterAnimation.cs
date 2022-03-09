@@ -23,6 +23,7 @@ namespace Character
         private static readonly int SetFinishFail = Animator.StringToHash("SetFinishFail");
         private static readonly int SetBeforeJetPackIdle = Animator.StringToHash("SetBeforeJetPackIdle");
         private static readonly int SetJetPackFly = Animator.StringToHash("SetJetPackFly");
+        private static readonly int SetBalloonFly = Animator.StringToHash("SetBalloonFly");
         private static readonly int JetPackAppear = Animator.StringToHash("JetPackAppear");
         private static readonly int JetPackDisappear = Animator.StringToHash("JetPackHide");
 
@@ -39,7 +40,7 @@ namespace Character
         public void EnableFinish() => girlAnimator.SetTrigger(SetFinish);
         public void EnableFinishFail() => girlAnimator.SetTrigger(SetFinishFail);
         public void GirlStartJetPackFly() => girlAnimator.SetTrigger(SetJetPackFly);
-        
+        public void GirlSetBalloonFly() => girlAnimator.SetTrigger(SetBalloonFly);
         
         #endregion
 

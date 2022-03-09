@@ -35,7 +35,7 @@ namespace Character
             _characterAnimation.GirlIdleDisable();
             SetJumpEndPoint();
             jetPackAppear.PlayFeedbacks();
-            StartCoroutine(JetPackEnable());
+            StartCoroutine(AfterJetPackEnable());
         }
        
         public void StartFailJetPackAction()
@@ -43,9 +43,7 @@ namespace Character
             _characterAnimation.GirlIdleDisable();
             SetJumpEndPoint();
             balloonFeedback.PlayFeedbacks();
-            isFlyFail = true;
-            _characterMovement.state = CharacterState.FlyingJetPack;
-            _characterAnimation.GirlStartJetPackFly();
+            StartCoroutine(AfterBalloonEnable());
         }
 
         public void SetToMovingAfterJetPack()
@@ -77,12 +75,20 @@ namespace Character
             _endJumpPoint = transform.position + new Vector3(0,0,posZ);
         }
 
-        private IEnumerator JetPackEnable()
+        private IEnumerator AfterJetPackEnable()
         {
             yield return new WaitForSeconds(0.4f);
+            isFlyFail = false;
             _characterMovement.state = CharacterState.FlyingJetPack;
             _characterAnimation.GirlStartJetPackFly();
-            isFlyFail = false;
+        }
+
+        private IEnumerator AfterBalloonEnable()
+        {
+            yield return new WaitForSeconds(0.4f);
+            isFlyFail = true;
+            _characterMovement.state = CharacterState.FlyingJetPack;
+            _characterAnimation.GirlSetBalloonFly();
         }
 
         private IEnumerator PlayLandParticles()

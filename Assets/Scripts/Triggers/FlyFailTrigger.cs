@@ -1,3 +1,4 @@
+using System;
 using Character;
 using MoreMountains.Feedbacks;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace Triggers
         {
             if(!other.gameObject.CompareTag("Character")) return;
             var characterFly = other.GetComponent<CharacterFly>();
+            var characterJetpack = other.GetComponent<CharacterJetPack>();
+            if(!characterJetpack.isFlyFail) return;
             characterFly.SetToFall();
             failFeedback.PlayFeedbacks();
             gameObject.SetActive(false);

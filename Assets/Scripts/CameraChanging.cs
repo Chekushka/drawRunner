@@ -12,6 +12,14 @@ public class CameraChanging : MonoBehaviour
         cameras[(int)cameraType].Priority = 1;
     }
 
+    public void BalloonCameraViewObjectChange(Transform newViewObject)
+    {
+        cameras[(int)CameraType.Balloon].m_Follow = newViewObject;
+        cameras[(int)CameraType.Balloon].m_LookAt = newViewObject;
+    }
+
+    
+
     private void SetCameraPrioritiesToZero()
     {
         foreach (var cam in cameras)
@@ -25,5 +33,6 @@ public enum CameraType
     Draw,
     WallBrake,
     Finish,
-    TwoCharactersStart
+    TwoCharactersStart,
+    Balloon
 }
