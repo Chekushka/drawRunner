@@ -148,6 +148,7 @@ namespace Character
         Moving,
         Flying,
         Running,
-        FlyingJetPack
+        FlyingJetPack,
+        BoatSwimming
     }
 }

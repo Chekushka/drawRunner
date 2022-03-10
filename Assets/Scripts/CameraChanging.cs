@@ -17,9 +17,7 @@ public class CameraChanging : MonoBehaviour
         cameras[(int)CameraType.Balloon].m_Follow = newViewObject;
         cameras[(int)CameraType.Balloon].m_LookAt = newViewObject;
     }
-
     
-
     private void SetCameraPrioritiesToZero()
     {
         foreach (var cam in cameras)

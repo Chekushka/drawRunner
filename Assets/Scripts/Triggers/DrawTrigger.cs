@@ -41,6 +41,7 @@ namespace Triggers
    {
       Wings,
       Helmet,
-      JetPack
+      JetPack,
+      Boat
    }
 }
