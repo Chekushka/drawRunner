@@ -8,12 +8,12 @@ namespace Triggers
    public class DrawTrigger : MonoBehaviour
    {
       [SerializeField] private Item itemNeededToUse;
-   
+
       private void OnTriggerEnter(Collider other)
       {
          if(!other.gameObject.CompareTag("Character")) return;
          var characterMovement = other.GetComponent<CharacterMovement>();
-         characterMovement.SetToIdle(itemNeededToUse);
+         characterMovement.SetToIdle();
          if (characterMovement.isPlayerCharacter)
          {
             var itemDrawing = FindObjectOfType<ItemDrawing>();

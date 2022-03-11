@@ -16,6 +16,10 @@ namespace Drawing
         [SerializeField] private List<LineRenderer> itemsStandardLines;
         [SerializeField] private MMFeedbacks feedbacks;
 
+        [Header("Debug")]
+        [SerializeField] private bool isDebug;
+        [SerializeField] private bool debugValue;
+
         private CharacterMovement _movement;
         private DrawChecking _drawChecking;
         private Item _currentItem;
@@ -58,10 +62,20 @@ namespace Drawing
                     break;
                 case TouchPhase.Ended:
                     DisableDrawing();
-                    if(_drawChecking.CheckLine(_currentLine, itemsStandardLines[(int)_currentItem]))
-                        _movement.StartCorrectAction(_currentItem);
+                    if (isDebug)
+                    {
+                        if(debugValue)
+                            _movement.StartCorrectAction(_currentItem);
+                        else
+                            _movement.StartFailAction(_currentItem);
+                    }
                     else
-                        _movement.StartFailAction(_currentItem);
+                    {
+                        if(_drawChecking.CheckLine(_currentLine, itemsStandardLines[(int)_currentItem]))
+                            _movement.StartCorrectAction(_currentItem);
+                        else
+                            _movement.StartFailAction(_currentItem);
+                    }
                     break;
             }
         }

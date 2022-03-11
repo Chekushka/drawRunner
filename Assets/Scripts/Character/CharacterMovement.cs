@@ -3,8 +3,6 @@ using UnityEngine;
 
 namespace Character
 {
-    [RequireComponent(typeof(CharacterRun),typeof(CharacterFly), 
-        typeof(CharacterJetPack))] 
     [RequireComponent(typeof(CharacterAnimation))]
     public class CharacterMovement : MonoBehaviour
     {
@@ -15,6 +13,7 @@ namespace Character
         private CharacterRun _characterRun;
         private CharacterFly _characterFly;
         private CharacterJetPack _characterJetPack;
+        private CharacterSwim _characterSwim;
         private CharacterAnimation _characterAnimation;
         private CameraChanging _cameraChanging;
 
@@ -23,6 +22,7 @@ namespace Character
             _characterRun = GetComponent<CharacterRun>();
             _characterFly = GetComponent<CharacterFly>();
             _characterJetPack = GetComponent<CharacterJetPack>();
+            _characterSwim = GetComponent<CharacterSwim>();
             _characterAnimation = GetComponent<CharacterAnimation>();
             _cameraChanging = FindObjectOfType<CameraChanging>();
             state = CharacterState.Moving;
@@ -44,6 +44,9 @@ namespace Character
                 case CharacterState.FlyingJetPack:
                     _characterJetPack.JetPackFly();
                     break;
+                case CharacterState.BoatSwimming:
+                    _characterSwim.Swim(movementSpeed);
+                    break;
                 case CharacterState.Idle:
                     break;
             }
@@ -64,6 +67,9 @@ namespace Character
                 case Item.JetPack:
                     _characterJetPack.StartJetPackAction();
                     break;
+                case Item.Boat:
+                    _characterSwim.StartSwimAction();
+                    break;
             }
         }
         public void StartFailAction(Item item)
@@ -81,16 +87,15 @@ namespace Character
                 case Item.JetPack:
                     _characterJetPack.StartFailJetPackAction();
                     break;
+                case Item.Boat:
+                    _characterSwim.StartFailSwimAction();
+                    break;
             }
         }
 
-        public void SetToIdle(Item item)
+        public void SetToIdle()
         {
-            if (item == Item.JetPack)
-                _characterAnimation.GirlSetBeforeJetPackIdle();
-            else
-                _characterAnimation.GirlIdleEnable();
-            
+            _characterAnimation.GirlIdleEnable();
             state = CharacterState.Idle;
         }
 
@@ -114,8 +119,13 @@ namespace Character
 
         public void SetToMoving()
         {
-            if (state == CharacterState.Running) 
+            if(state == CharacterState.Running) 
                 _characterRun.DisableHelmet();
+            if (state == CharacterState.BoatSwimming)
+            {
+                _characterAnimation.GirlIdleDisable();
+                _characterSwim.MoveToLastHeightPos();
+            }
 
             state = CharacterState.Moving;
             _characterRun.isAbleToDestroyWall = false;

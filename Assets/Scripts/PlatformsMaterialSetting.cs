@@ -7,6 +7,7 @@ public class PlatformsMaterialSetting : MonoBehaviour
     [SerializeField] private List<Material> primaryMaterials;
     [SerializeField] private List<Material> secondaryMaterials;
     [SerializeField] private List<Material> decorMaterials;
+    [SerializeField] private List<MeshRenderer> pools;
     [SerializeField] private Transform finishParent;
     [SerializeField] private Transform decorParent;
 
@@ -26,5 +27,8 @@ public class PlatformsMaterialSetting : MonoBehaviour
         var decor = decorParent.GetComponentsInChildren<MeshRenderer>();
         foreach (var decoration in decor)
             decoration.material = decorMaterials[randomIndex];
+
+        foreach (var pool in pools)
+            pool.material = primaryMaterials[randomIndex];
     }
 }

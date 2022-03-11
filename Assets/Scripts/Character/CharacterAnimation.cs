@@ -24,8 +24,8 @@ namespace Character
         private static readonly int SetBeforeJetPackIdle = Animator.StringToHash("SetBeforeJetPackIdle");
         private static readonly int SetJetPackFly = Animator.StringToHash("SetJetPackFly");
         private static readonly int SetBalloonFly = Animator.StringToHash("SetBalloonFly");
-        private static readonly int JetPackAppear = Animator.StringToHash("JetPackAppear");
-        private static readonly int JetPackDisappear = Animator.StringToHash("JetPackHide");
+        private static readonly int SetToSitting = Animator.StringToHash("SetToSitting");
+        private static readonly int SetDrowning = Animator.StringToHash("SetDrowning");
 
         #region Girl
 
@@ -36,12 +36,13 @@ namespace Character
         public void GirlStartMovingAfterFly() => girlAnimator.SetTrigger(StartMovingAfterFly);
         public void GirlStartFly() => girlAnimator.SetTrigger(StartFly);
         public void GirlWallFall() => girlAnimator.SetTrigger(WallFall);
-        public void GirlSetBeforeJetPackIdle() => girlAnimator.SetTrigger(SetBeforeJetPackIdle);
         public void EnableFinish() => girlAnimator.SetTrigger(SetFinish);
         public void EnableFinishFail() => girlAnimator.SetTrigger(SetFinishFail);
         public void GirlStartJetPackFly() => girlAnimator.SetTrigger(SetJetPackFly);
         public void GirlSetBalloonFly() => girlAnimator.SetTrigger(SetBalloonFly);
-        
+        public void GirlSetToSitting() => girlAnimator.SetTrigger(SetToSitting);
+        public void GirlSetToDrowning() => girlAnimator.SetTrigger(SetDrowning);
+    
         #endregion
 
         #region Wings
