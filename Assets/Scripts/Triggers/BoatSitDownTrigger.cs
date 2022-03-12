@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Triggers
 {
-    public class SitDownTrigger : MonoBehaviour
+    public class BoatSitDownTrigger : MonoBehaviour
     {
         private const string CharacterTag = "Character";
         private void OnTriggerEnter(Collider other)

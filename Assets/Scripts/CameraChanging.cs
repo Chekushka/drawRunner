@@ -32,5 +32,6 @@ public enum CameraType
     WallBrake,
     Finish,
     TwoCharactersStart,
-    Balloon
+    Balloon,
+    Riding
 }

@@ -10,6 +10,7 @@ public class PlatformsMaterialSetting : MonoBehaviour
     [SerializeField] private List<MeshRenderer> pools;
     [SerializeField] private Transform finishParent;
     [SerializeField] private Transform decorParent;
+    [SerializeField] private Transform carRoadParents;
 
     private void Start()
     {
@@ -30,5 +31,9 @@ public class PlatformsMaterialSetting : MonoBehaviour
 
         foreach (var pool in pools)
             pool.material = primaryMaterials[randomIndex];
+        
+        var roads = carRoadParents.GetComponentsInChildren<MeshRenderer>();
+        foreach (var road in roads)
+            road.materials = materials;
     }
 }

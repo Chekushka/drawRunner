@@ -43,6 +43,7 @@ namespace Triggers
       Helmet,
       JetPack,
       Boat,
-      Extinguisher
+      Extinguisher,
+      Car
    }
 }

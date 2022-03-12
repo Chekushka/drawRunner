@@ -18,9 +18,8 @@ namespace Character
         [SerializeField] private ParticleSystem tntSmallExplosion;
         [SerializeField] private GameObject tnt;
         [SerializeField] private MMFeedbacks failFeedback;
-        [SerializeField] private GameObject girlObject;
+        [SerializeField] private GameObject girlBodyObject;
         [SerializeField] private Color burnedBodyColor;
-        [SerializeField] private ParticleSystem burnSmoke;
         private CharacterMovement _characterMovement;
         private CharacterAnimation _characterAnimation;
         
@@ -59,10 +58,26 @@ namespace Character
         private void EnableRagDoll()
         {
             _characterAnimation.DisableGirlAnimator();
-            var bodies = girlObject.GetComponentsInChildren<Rigidbody>();
+            var bodies = girlBodyObject.GetComponentsInChildren<Rigidbody>();
             foreach (var rb in bodies)
                 rb.isKinematic = false;
+            foreach (var rb in bodies)
+                rb.AddForce(Vector3.back * 7 + Vector3.up * 15, ForceMode.Impulse);
             GetComponent<Collider>().enabled = false;
+        }
+
+        private void MakeBodyBurned()
+        {
+            var burnedBodyMaterials = girlRenderer.materials;
+            var burnedHairMaterials = girlHairRenderer.materials;
+            
+            for (var i = 0; i < burnedBodyMaterials.Length; i++)
+                burnedBodyMaterials[i].color = burnedBodyColor;
+            for (var i = 0; i < burnedHairMaterials.Length; i++)
+                burnedHairMaterials[i].color = burnedBodyColor;
+
+            girlRenderer.materials = burnedBodyMaterials;
+            girlHairRenderer.materials = burnedHairMaterials;
         }
 
         private IEnumerator PlayFail()
@@ -71,14 +86,10 @@ namespace Character
             explosion.Play();
             tntSmallExplosion.Play();
             tnt.SetActive(false);
+            MakeBodyBurned();
             _characterMovement.state = CharacterState.Idle;
-            girlRenderer.material.color = burnedBodyColor;
-            var burnedHairMaterials = girlHairRenderer.materials;
-            for (var i = 0; i < burnedHairMaterials.Length; i++)
-                burnedHairMaterials[i].color = burnedBodyColor;
-            girlHairRenderer.materials = burnedHairMaterials;
-            _characterAnimation.GirlWallFall();
-            //EnableRagDoll();
+            //_characterAnimation.GirlWallFall();
+            EnableRagDoll();
             failFeedback.PlayFeedbacks();
         }
     }

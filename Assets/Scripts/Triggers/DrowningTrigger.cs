@@ -15,7 +15,8 @@ namespace Triggers
             if (characterSwim.GetCurrentState() == SwimActionState.Falling && characterSwim.GetFailStatus())
             {
                 characterSwim.SetDrowning();
-                failFeedback.PlayFeedbacks();
+                if(other.GetComponent<CharacterMovement>().isPlayerCharacter)
+                    failFeedback.PlayFeedbacks();
             }
         }
     }

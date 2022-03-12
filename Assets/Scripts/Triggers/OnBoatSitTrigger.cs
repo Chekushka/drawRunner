@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Triggers
 {
-    public class OnSitTrigger : MonoBehaviour
+    public class OnBoatSitTrigger : MonoBehaviour
     {
         private const string ThighTag = "Thigh";
         private const int GirlLayer = 7;
@@ -13,10 +13,7 @@ namespace Triggers
             if(!other.gameObject.CompareTag(ThighTag)) return;
             var characterSwim = other.GetComponentInParent<CharacterSwim>();
             if (characterSwim.GetCurrentState() == SwimActionState.SittingDown)
-            {
                 characterSwim.SetCurrentState(SwimActionState.Swimming);
-                characterSwim.SetSwimming();
-            }
         }
     }
 }

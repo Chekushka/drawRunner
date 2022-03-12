@@ -15,6 +15,7 @@ namespace Character
         private CharacterJetPack _characterJetPack;
         private CharacterSwim _characterSwim;
         private CharacterExtinguishing _characterExtinguishing;
+        private CharacterRide _characterRide;
         private CharacterAnimation _characterAnimation;
         private CameraChanging _cameraChanging;
 
@@ -25,6 +26,7 @@ namespace Character
             _characterJetPack = GetComponent<CharacterJetPack>();
             _characterSwim = GetComponent<CharacterSwim>();
             _characterExtinguishing = GetComponent<CharacterExtinguishing>();
+            _characterRide = GetComponent<CharacterRide>();
             _characterAnimation = GetComponent<CharacterAnimation>();
             _cameraChanging = FindObjectOfType<CameraChanging>();
             state = CharacterState.Moving;
@@ -52,6 +54,9 @@ namespace Character
                 case CharacterState.Extinguishing:
                     _characterExtinguishing.Extinguish();
                     break;
+                case CharacterState.CarRiding:
+                    _characterRide.Ride(movementSpeed);
+                    break;
                 case CharacterState.Idle:
                     break;
             }
@@ -78,6 +83,11 @@ namespace Character
                 case Item.Extinguisher:
                     _characterExtinguishing.StartExtinguishing();
                     break;
+                case Item.Car:
+                    _characterRide.StartRideAction();
+                    if(isPlayerCharacter) 
+                        _cameraChanging.ChangeCamera(CameraType.Riding);
+                    break;
             }
         }
         public void StartFailAction(Item item)
@@ -100,6 +110,9 @@ namespace Character
                     break;
                 case Item.Extinguisher:
                     _characterExtinguishing.StartFailExtinguishing();
+                    break;
+                case Item.Car:
+                    _characterRide.StartFailRideAction();
                     break;
             }
         }
@@ -130,13 +143,22 @@ namespace Character
 
         public void SetToMoving()
         {
-            if(state == CharacterState.Running) 
-                _characterRun.DisableHelmet();
-            if (state == CharacterState.BoatSwimming)
+            switch (state)
             {
-                _characterAnimation.GirlIdleDisable();
-                _characterSwim.MoveToLastHeightPos();
+                case CharacterState.Running:
+                    _characterRun.DisableHelmet();
+                    break;
+                case CharacterState.BoatSwimming:
+                    _characterAnimation.GirlIdleDisable();
+                    _characterSwim.MoveToLastHeightPos();
+                    break;
+                case CharacterState.CarRiding:
+                    _characterAnimation.GirlIdleDisable();
+                    _characterRide.MoveToLastHeightPos();
+                    _characterRide.OffsetBackToCentre();
+                    break;
             }
+
             state = CharacterState.Moving;
             _characterRun.isAbleToDestroyWall = false;
             if(isPlayerCharacter)
@@ -170,6 +192,7 @@ namespace Character
         Running,
         FlyingJetPack,
         BoatSwimming,
-        Extinguishing
+        Extinguishing,
+        CarRiding
     }
 }

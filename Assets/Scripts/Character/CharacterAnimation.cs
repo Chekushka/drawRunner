@@ -27,6 +27,7 @@ namespace Character
         private static readonly int SetToSitting = Animator.StringToHash("SetToSitting");
         private static readonly int SetDrowning = Animator.StringToHash("SetDrowning");
         private static readonly int SetExtinguishing = Animator.StringToHash("SetExtinguishing");
+        private static readonly int SetSkateBoardRide = Animator.StringToHash("SetSkateBoardRide");
 
         #region Girl
 
@@ -44,6 +45,7 @@ namespace Character
         public void GirlSetToSitting() => girlAnimator.SetTrigger(SetToSitting);
         public void GirlSetToDrowning() => girlAnimator.SetTrigger(SetDrowning);
         public void GirlSetExtinguishing() => girlAnimator.SetTrigger(SetExtinguishing);
+        public void GirlSetSkateBoardRide() => girlAnimator.SetTrigger(SetSkateBoardRide);
     
         #endregion
 
