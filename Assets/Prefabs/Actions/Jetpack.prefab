@@ -198,13 +198,32 @@ PrefabInstance:
       propertyPath: failFeedback
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2167409216240525691, guid: 288de0d08ebd9c543a70f07075a6218d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 288de0d08ebd9c543a70f07075a6218d, type: 3}
+--- !u!1 &4431742472161187269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1722032271473801130, guid: 288de0d08ebd9c543a70f07075a6218d, type: 3}
+  m_PrefabInstance: {fileID: 3054941889244013167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4431742472161187270 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1722032271473801129, guid: 288de0d08ebd9c543a70f07075a6218d, type: 3}
   m_PrefabInstance: {fileID: 3054941889244013167}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1320960564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4431742472161187269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3032aac646bf0c45b33c90907353f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  failFeedback: {fileID: 0}
 --- !u!1001 &3054941889567373031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -215,6 +234,14 @@ PrefabInstance:
     - target: {fileID: 7139392410198952684, guid: 9cfdee78149063f458f7e652d6dacdd9, type: 3}
       propertyPath: m_Name
       value: StopActionTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7139392410198952686, guid: 9cfdee78149063f458f7e652d6dacdd9, type: 3}
+      propertyPath: m_Size.x
+      value: 2.570798
+      objectReference: {fileID: 0}
+    - target: {fileID: 7139392410198952686, guid: 9cfdee78149063f458f7e652d6dacdd9, type: 3}
+      propertyPath: m_Center.x
+      value: 0.02847147
       objectReference: {fileID: 0}
     - target: {fileID: 7139392410198952687, guid: 9cfdee78149063f458f7e652d6dacdd9, type: 3}
       propertyPath: m_RootOrder
@@ -262,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8927046844603351577, guid: 9cfdee78149063f458f7e652d6dacdd9, type: 3}
       propertyPath: delay
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cfdee78149063f458f7e652d6dacdd9, type: 3}

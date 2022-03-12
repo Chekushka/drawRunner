@@ -76,6 +76,7 @@ namespace Character
         {
             _characterAnimation.DisableGirlAnimator();
             SetRagDollKinematic(false);
+            GetComponent<Collider>().enabled = false;
             if (_characterMovement.state == CharacterState.FlyingJetPack)
                 _cameraChanging.ChangeCamera(CameraType.Balloon);
         }

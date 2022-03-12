@@ -42,6 +42,7 @@ namespace Triggers
       Wings,
       Helmet,
       JetPack,
-      Boat
+      Boat,
+      Extinguisher
    }
 }

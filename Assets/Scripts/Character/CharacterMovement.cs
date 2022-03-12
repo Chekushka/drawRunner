@@ -14,6 +14,7 @@ namespace Character
         private CharacterFly _characterFly;
         private CharacterJetPack _characterJetPack;
         private CharacterSwim _characterSwim;
+        private CharacterExtinguishing _characterExtinguishing;
         private CharacterAnimation _characterAnimation;
         private CameraChanging _cameraChanging;
 
@@ -23,6 +24,7 @@ namespace Character
             _characterFly = GetComponent<CharacterFly>();
             _characterJetPack = GetComponent<CharacterJetPack>();
             _characterSwim = GetComponent<CharacterSwim>();
+            _characterExtinguishing = GetComponent<CharacterExtinguishing>();
             _characterAnimation = GetComponent<CharacterAnimation>();
             _cameraChanging = FindObjectOfType<CameraChanging>();
             state = CharacterState.Moving;
@@ -47,6 +49,9 @@ namespace Character
                 case CharacterState.BoatSwimming:
                     _characterSwim.Swim(movementSpeed);
                     break;
+                case CharacterState.Extinguishing:
+                    _characterExtinguishing.Extinguish();
+                    break;
                 case CharacterState.Idle:
                     break;
             }
@@ -70,6 +75,9 @@ namespace Character
                 case Item.Boat:
                     _characterSwim.StartSwimAction();
                     break;
+                case Item.Extinguisher:
+                    _characterExtinguishing.StartExtinguishing();
+                    break;
             }
         }
         public void StartFailAction(Item item)
@@ -89,6 +97,9 @@ namespace Character
                     break;
                 case Item.Boat:
                     _characterSwim.StartFailSwimAction();
+                    break;
+                case Item.Extinguisher:
+                    _characterExtinguishing.StartFailExtinguishing();
                     break;
             }
         }
@@ -126,7 +137,6 @@ namespace Character
                 _characterAnimation.GirlIdleDisable();
                 _characterSwim.MoveToLastHeightPos();
             }
-
             state = CharacterState.Moving;
             _characterRun.isAbleToDestroyWall = false;
             if(isPlayerCharacter)
@@ -159,6 +169,7 @@ namespace Character
         Flying,
         Running,
         FlyingJetPack,
-        BoatSwimming
+        BoatSwimming,
+        Extinguishing
     }
 }
