@@ -7,9 +7,10 @@ namespace Character
     public class CharacterMovement : MonoBehaviour
     {
         public bool isPlayerCharacter;
+        public bool isOnHighPlatform;
         public CharacterState state;
         [SerializeField] private float movementSpeed;
-        
+
         private CharacterRun _characterRun;
         private CharacterFly _characterFly;
         private CharacterJetPack _characterJetPack;
@@ -18,6 +19,9 @@ namespace Character
         private CharacterRide _characterRide;
         private CharacterAnimation _characterAnimation;
         private CameraChanging _cameraChanging;
+
+        private float _currentHeight;
+        private const float HighPlatformHeight = 10f;
 
         private void Start()
         {
@@ -30,6 +34,7 @@ namespace Character
             _characterAnimation = GetComponent<CharacterAnimation>();
             _cameraChanging = FindObjectOfType<CameraChanging>();
             state = CharacterState.Moving;
+            _currentHeight = transform.position.y;
         }
 
         private void Update()
@@ -76,6 +81,7 @@ namespace Character
                     break;
                 case Item.JetPack:
                     _characterJetPack.StartJetPackAction();
+                    isOnHighPlatform = true;
                     break;
                 case Item.Boat:
                     _characterSwim.StartSwimAction();
@@ -134,6 +140,8 @@ namespace Character
                     state = CharacterState.Idle;
                     _characterJetPack.DisableJetpack();
                     _characterJetPack.SetToMovingAfterJetPack();
+                    _currentHeight += HighPlatformHeight;
+                    transform.position = new Vector3(transform.position.x,_currentHeight,transform.position.z);
                     break;
                 default:
                     _characterAnimation.GirlStartRegularMoving();
@@ -182,6 +190,8 @@ namespace Character
             if(isPlayerCharacter)
                 _cameraChanging.ChangeCamera(CameraType.Finish);
         }
+
+        public float GetHighPlatformHeight() => HighPlatformHeight;
     }
 
     public enum CharacterState
