@@ -1048,9 +1048,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1241675740}
-        m_TargetAssemblyTypeName: LevelRestarting, Assembly-CSharp
-        m_MethodName: RestartLevel
+      - m_Target: {fileID: 1241675741}
+        m_TargetAssemblyTypeName: SceneTransitions, Assembly-CSharp
+        m_MethodName: RestartScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1409,14 +1409,14 @@ PrefabInstance:
     - target: {fileID: 36887624, guid: b63cde96656e3044d9f7210c45a096e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1241675740}
+      objectReference: {fileID: 1241675741}
     - target: {fileID: 36887624, guid: b63cde96656e3044d9f7210c45a096e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RestartLevel
+      value: LoadNextScene
       objectReference: {fileID: 0}
     - target: {fileID: 36887624, guid: b63cde96656e3044d9f7210c45a096e7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: LevelRestarting, Assembly-CSharp
+      value: SceneTransitions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 163248819347051107, guid: b63cde96656e3044d9f7210c45a096e7, type: 3}
       propertyPath: m_Color.a
@@ -3721,7 +3721,7 @@ GameObject:
   - component: {fileID: 1241675739}
   - component: {fileID: 1241675738}
   - component: {fileID: 1241675737}
-  - component: {fileID: 1241675740}
+  - component: {fileID: 1241675741}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3813,7 +3813,7 @@ Canvas:
   m_SortingLayerID: -1279502743
   m_SortingOrder: 1
   m_TargetDisplay: 0
---- !u!114 &1241675740
+--- !u!114 &1241675741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3822,7 +3822,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1241675735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05388fe2d9121644a89baaf444f82182, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fd5622e49154b944b79233997b24916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1244604598
@@ -7421,9 +7421,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4449952193239057433, guid: 9e588982854be2545998f8904a45645b, type: 3}
+      propertyPath: carSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449952193239057433, guid: 9e588982854be2545998f8904a45645b, type: 3}
       propertyPath: failFeedback
       value: 
       objectReference: {fileID: 1598618590}
+    - target: {fileID: 4449952193239057433, guid: 9e588982854be2545998f8904a45645b, type: 3}
+      propertyPath: sitDownSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4449952193239057434, guid: 9e588982854be2545998f8904a45645b, type: 3}
       propertyPath: boat
       value: 
