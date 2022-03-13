@@ -184,7 +184,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69114590}
-  m_LocalRotation: {x: 0.03681865, y: -0.48633376, z: 0.020516792, w: 0.87275594}
+  m_LocalRotation: {x: 0.03681865, y: -0.48633373, z: 0.020516789, w: 0.87275594}
   m_LocalPosition: {x: 4.93, y: 2.54, z: 5.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2083,11 +2083,6 @@ Transform:
   m_Father: {fileID: 1897810490}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &530302463 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1741109033891747768, guid: 21e9d7e9f3d865a4e8f530a9f2bf9888, type: 3}
-  m_PrefabInstance: {fileID: 1741109034151088711}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &606985830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6321,7 +6316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 3.07, y: 1.32, z: -7.82}
+  m_FollowOffset: {x: 2.5, y: 2.3, z: -4.3}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -7045,7 +7040,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863710160}
-  m_LocalRotation: {x: 0.1281144, y: -0.5234734, z: 0.07997672, w: 0.83855003}
+  m_LocalRotation: {x: 0.12811439, y: -0.5234734, z: 0.07997671, w: 0.83855003}
   m_LocalPosition: {x: 9.39, y: 3.92, z: 3.8000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7665,7 +7660,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058389771}
-  m_LocalRotation: {x: 0.03681865, y: -0.48633376, z: 0.020516792, w: 0.87275594}
+  m_LocalRotation: {x: 0.03681865, y: -0.48633373, z: 0.020516789, w: 0.87275594}
   m_LocalPosition: {x: 4.93, y: 2.54, z: 5.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7710,8 +7705,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092824544}
-  m_LocalRotation: {x: 0.07648802, y: -0.18539499, z: 0.01447616, w: 0.9795758}
-  m_LocalPosition: {x: 3.07, y: 13.539999, z: 119.29}
+  m_LocalRotation: {x: 0.20746838, y: -0.25420165, z: 0.05592784, w: 0.9429796}
+  m_LocalPosition: {x: 2.5, y: 2.9499998, z: 4.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1658474701}
@@ -7736,8 +7731,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 0
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 530302463}
-  m_Follow: {fileID: 530302463}
+  m_LookAt: {fileID: 816647718}
+  m_Follow: {fileID: 816647718}
   m_Lens:
     FieldOfView: 62
     OrthographicSize: 5

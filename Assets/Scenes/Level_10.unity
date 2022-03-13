@@ -457,7 +457,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174032929}
-  m_LocalRotation: {x: 0.0697462, y: -0.43188977, z: 0.033521757, w: 0.8986006}
+  m_LocalRotation: {x: 0.069746196, y: -0.43188977, z: 0.033521757, w: 0.8986006}
   m_LocalPosition: {x: 5, y: 3.05, z: 26.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6027,7 +6027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 3.07, y: 1.32, z: -7.82}
+  m_FollowOffset: {x: 2.5, y: 2.3, z: -4.3}
   m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
@@ -6832,7 +6832,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863710160}
-  m_LocalRotation: {x: 0.1281144, y: -0.5234734, z: 0.07997672, w: 0.83855003}
+  m_LocalRotation: {x: 0.12811439, y: -0.5234734, z: 0.07997671, w: 0.83855003}
   m_LocalPosition: {x: 9.39, y: 3.92, z: 25.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -7497,8 +7497,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092824544}
-  m_LocalRotation: {x: 0.07648802, y: -0.185395, z: 0.014476162, w: 0.9795758}
-  m_LocalPosition: {x: 3.07, y: 13.619999, z: 126.52}
+  m_LocalRotation: {x: 0.20746839, y: -0.25420168, z: 0.055927847, w: 0.9429796}
+  m_LocalPosition: {x: 2.5, y: 2.9499998, z: 26.220001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1658474701}
@@ -8887,6 +8887,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 709580256, guid: fceac2fb5a66e694eb34ee316987fe83, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.00014901179
+      objectReference: {fileID: 0}
+    - target: {fileID: 763222205, guid: fceac2fb5a66e694eb34ee316987fe83, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 1.364242e-12
+      objectReference: {fileID: 0}
+    - target: {fileID: 763222205, guid: fceac2fb5a66e694eb34ee316987fe83, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.0016845573
+      objectReference: {fileID: 0}
     - target: {fileID: 816647709, guid: fceac2fb5a66e694eb34ee316987fe83, type: 3}
       propertyPath: boat
       value: 
@@ -8899,6 +8911,10 @@ PrefabInstance:
       propertyPath: failFeedback
       value: 
       objectReference: {fileID: 1598618590}
+    - target: {fileID: 1161035351, guid: fceac2fb5a66e694eb34ee316987fe83, type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.0027171804
+      objectReference: {fileID: 0}
     - target: {fileID: 1366079074817288217, guid: fceac2fb5a66e694eb34ee316987fe83, type: 3}
       propertyPath: failFeedback
       value: 

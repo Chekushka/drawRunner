@@ -11,6 +11,7 @@ namespace Drawing
         [SerializeField] private LineRenderer linePrefab;
         [SerializeField] private Transform linesParent;
         [SerializeField] private GameObject drawField;
+        [SerializeField] private GameObject drawText;
         [SerializeField] private LayerMask drawFieldMask;
         [SerializeField] private List<GameObject> itemsMasks;
         [SerializeField] private List<LineRenderer> itemsStandardLines;
@@ -56,6 +57,7 @@ namespace Drawing
             {
                 case TouchPhase.Began:
                     CreateLine(hit.point);
+                    drawText.SetActive(false);
                     break;
                 case TouchPhase.Moved:
                     UpdateLine(hit.point);
@@ -85,6 +87,8 @@ namespace Drawing
             _cameraChanging.ChangeCamera(CameraType.Draw);
             drawField.transform.localScale = Vector3.zero;
             drawField.SetActive(true);
+            drawText.transform.localScale = Vector3.zero;
+            drawText.SetActive(true);
             feedbacks.PlayFeedbacks();
             itemsMasks[(int)item].SetActive(true);
             _currentItem = item;
