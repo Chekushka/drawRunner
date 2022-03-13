@@ -6,7 +6,6 @@ public class StandardLineMoving : MonoBehaviour
 {
     [SerializeField] private Transform drawObjectTransform;
     private CharacterMovement _characterMovement;
-    private bool _isMovingUpDone;
 
     private void Start()
     {
@@ -23,17 +22,14 @@ public class StandardLineMoving : MonoBehaviour
         var linePoints = new Vector3[line.positionCount];
         line.GetPositions(linePoints);
 
-        if (!_isMovingUpDone && _characterMovement.isOnHighPlatform)
+        for (var i = 0; i < linePoints.Length; i++)
         {
-            for (var i = 0; i < linePoints.Length; i++)
+            linePoints[i].z = drawObjectTransform.position.z;
+            if(_characterMovement.isOnHighPlatform)
                 linePoints[i].y += _characterMovement.GetHighPlatformHeight();
-            _isMovingUpDone = true;
         }
 
-        for (var i = 0; i < linePoints.Length; i++)
-            linePoints[i].z = drawObjectTransform.position.z;
-            
-        
+
         line.SetPositions(linePoints);
     }
 }
