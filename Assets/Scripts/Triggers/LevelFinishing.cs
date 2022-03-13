@@ -16,6 +16,9 @@ namespace Triggers
 
         private LevelProgressing _levelProgressing;
 
+        public delegate void LevelCompleted();
+        public static event LevelCompleted OnLevelCompleted;
+
         private void Start()
         {
             _levelProgressing = FindObjectOfType<LevelProgressing>();
@@ -35,12 +38,13 @@ namespace Triggers
                 }
                 else
                 {
-                    finishPlatformAnimator.enabled = true;
+                    //finishPlatformAnimator.enabled = true;
                     foreach (var blast in confetti)
                         blast.Play();
                     characterMovement.SetToFinish();
                     StartCoroutine(EnableCompleteScreen());
                     _levelProgressing.levelHasWinner = true;
+                    OnLevelCompleted?.Invoke();
                 }
             }
             else
@@ -49,7 +53,7 @@ namespace Triggers
                     characterMovement.SetToFailFinish();
                 else
                 {
-                    finishPlatformAnimator.enabled = true;
+                    //finishPlatformAnimator.enabled = true;
                     foreach (var blast in confetti)
                         blast.Play();
                     characterMovement.SetToFinish();

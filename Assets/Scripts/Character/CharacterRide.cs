@@ -66,8 +66,8 @@ namespace Character
         public void SetSitting() => _characterAnimation.GirlSetToSitting();
         public void OffsetToDriverSeat() => transform.position += Vector3.left * sittingPosOffset;
 
-        public void OffsetBackToCentre() =>
-            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+        public void OffsetBackToCentre() => transform.position += Vector3.right * sittingPosOffset;
+            
 
         public void SetLastHeightPos() => _lastPlatformHeightPos = transform.position.y;
         public void MoveToLastHeightPos() => transform.position = 

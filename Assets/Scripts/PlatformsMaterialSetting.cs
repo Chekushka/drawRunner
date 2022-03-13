@@ -10,7 +10,7 @@ public class PlatformsMaterialSetting : MonoBehaviour
     [SerializeField] private List<MeshRenderer> pools;
     [SerializeField] private Transform finishParent;
     [SerializeField] private Transform decorParent;
-    [SerializeField] private Transform carRoadParents;
+    [SerializeField] private Transform carRoadParent;
 
     private void Start()
     {
@@ -24,16 +24,24 @@ public class PlatformsMaterialSetting : MonoBehaviour
         var finishes = finishParent.GetComponentsInChildren<FinishMaterialSetting>();
         foreach (var finish in finishes)
             finish.SetPlatform(randomIndex);
-        
-        var decor = decorParent.GetComponentsInChildren<MeshRenderer>();
-        foreach (var decoration in decor)
-            decoration.material = decorMaterials[randomIndex];
+        if (decorParent != null)
+        {
+            var decor = decorParent.GetComponentsInChildren<MeshRenderer>();
+            foreach (var decoration in decor)
+                decoration.material = decorMaterials[randomIndex];
+        }
 
-        foreach (var pool in pools)
-            pool.material = primaryMaterials[randomIndex];
-        
-        var roads = carRoadParents.GetComponentsInChildren<MeshRenderer>();
-        foreach (var road in roads)
-            road.materials = materials;
+        if (pools.Count > 0)
+        {
+            foreach (var pool in pools)
+                pool.material = primaryMaterials[randomIndex];
+        }
+
+        if (carRoadParent != null)
+        {
+            var roads = carRoadParent.GetComponentsInChildren<MeshRenderer>();
+            foreach (var road in roads)
+                road.materials = materials;
+        }
     }
 }
